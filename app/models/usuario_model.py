@@ -8,7 +8,7 @@ class Usuario(Base):
     #Definindo caracteristicas da tabela no banco de dados.
     __tablename__ = "usuarios"
 
-    id = Column(Integer,primay_key = True, autoincrement = True)
+    id = Column(Integer,primary_key = True, autoincrement=True)
     nome = Column(String(150))
     email = Column(String(150))
     senha = Column(String(150))
