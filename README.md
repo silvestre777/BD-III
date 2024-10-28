@@ -24,3 +24,5 @@ Os dados precisam ser salvos no banco de dados.
 ### Tecnologias:
 - ORM: SQLALCHEMY
 - Banco de dados: MySQL
+- Containerização: Docker
+- Orquestração de Contêiners: Docker Compose
