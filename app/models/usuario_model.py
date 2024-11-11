@@ -15,7 +15,7 @@ class Usuario(Base):
 
     def __init__(self, nome: str, email: str, senha: str):
         self.nome = self._nome_vazio(nome)
-        self.email = self._validar_email(email)
+        self.email = email
         self.senha = self._validar_senha(senha)
 
     # Funções de validação
