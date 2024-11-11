@@ -1,4 +1,4 @@
-from models.usuario_model import Usuario
+from app.models.usuario_model import Usuario
 from sqlalchemy.orm import Session
 
 class UsuarioRepository:

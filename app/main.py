@@ -1,7 +1,10 @@
-from services.usuario_service import UsuarioService
-from repositories.usuario_repository import UsuarioRepository
-from config.database import Session
-from models.usuario_model import Usuario
+from app.services.usuario_service import UsuarioService
+from app.repositories.usuario_repository import UsuarioRepository
+from app.config.database import Session
+from app.models.usuario_model import Usuario
+import sys 
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 def main():
     session = Session()
@@ -51,7 +54,7 @@ def main():
     def listar_usuarios():
         listar_usuario = service.listar_todos_usuario()
         for usuario in listar_usuario:
-            print(f"Nome: {usuario.nome} - Email: {usuario.email} - Senha: {usuario.senha}")
+            print(f"{usuario.id} - Nome: {usuario.nome} - Email: {usuario.email} - Senha: {usuario.senha}")
     while True:
     #Solicitando dados para o usuario.
         print(f"\n== Tabela de serviços disponiveis ==")

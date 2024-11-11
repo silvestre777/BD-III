@@ -1,14 +1,6 @@
-import re
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import declarative_base
-from config.database import db
-
-# Exceções Personalizadas
-class EmailInvalidoError(ValueError):
-    pass
-
-class SenhaInvalidaError(ValueError):
-    pass
+from app.config.database import db
 
 Base = declarative_base()
 
@@ -32,17 +24,10 @@ class Usuario(Base):
             raise ValueError("O nome não pode ser vazio.")
         return nome
 
-    def _validar_email(self, email: str):
-        # Verificar se o email tem o formato adequado usando regex
-        email_regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
-        if not re.match(email_regex, email):
-            raise EmailInvalidoError("O email fornecido é inválido.")
-        return email
-
     def _validar_senha(self, senha: str):
         # Verificar se a senha tem pelo menos 6 caracteres
         if len(senha) < 6:
-            raise SenhaInvalidaError("A senha deve ter pelo menos 6 caracteres.")
+            raise ValueError("A senha deve ter pelo menos 6 caracteres.")
         return senha
 
 # Criação das tabelas no banco de dados
