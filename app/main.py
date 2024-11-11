@@ -16,7 +16,6 @@ def main():
         nome = input("Digite seu nome: ")
         email = input("Digite seu e-mail: ")
         senha = input("Digite sua senha: ")
-    #Funcao para armazenar os dados digitado a cima
         service.criar_usuario(nome= nome, email = email, senha=senha)
 
     def consultar_usuario():
