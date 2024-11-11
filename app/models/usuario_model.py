@@ -15,7 +15,7 @@ class Usuario(Base):
 
     def __init__(self, nome: str, email: str, senha: str):
         self.nome = self._nome_vazio(nome)
-        self.email = email
+        self.email = self._email_vazio(email)
         self.senha = self._validar_senha(senha)
 
     # Funções de validação
@@ -29,6 +29,10 @@ class Usuario(Base):
         if len(senha) < 6:
             raise ValueError("A senha deve ter pelo menos 6 caracteres.")
         return senha
+    def _email_vazio(self, email: str):
+        if not email.strip():
+            raise ValueError("O campo email nao pode ficar vazio.")
+        return email
 
 # Criação das tabelas no banco de dados
 Base.metadata.create_all(bind=db)

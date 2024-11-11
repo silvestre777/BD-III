@@ -17,3 +17,7 @@ def test_senha_invalida():
 def test_nome_vazio():
     with pytest.raises(ValueError, match="O nome não pode ser vazio."):
         Usuario("", "silvestre1@gmail.com","senha123")
+
+def test_email_vazio():
+    with pytest.raises(ValueError, match= "O campo email nao pode ficar vazio."):
+        Usuario("Silvestre","","senha123")
